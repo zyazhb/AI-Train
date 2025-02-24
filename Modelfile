@@ -1,0 +1,5 @@
+FROM ./model/merged_model/phishkiller_q8_0.gguf
+TEMPLATE """<|begin_of_text|><|start_header_id|>邮件类型分析，全部使用中文回答问题。根据邮件内容判断为正常邮件或钓鱼/垃圾邮件。<|end_header_id|>Email type classification<|eot_id|>
+<|start_header_id|>user<|end_header_id|>{{ .Prompt }}<|eot_id|>
+<|start_header_id|>assistant<|end_header_id|>"""
+# SYSTEM """You are a helpful AI assistant."""
