@@ -14,3 +14,4 @@ data/
 wandb/
 tmp/
 model/
+unsloth_compiled_cache/
