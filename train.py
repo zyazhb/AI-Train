@@ -48,7 +48,7 @@ def preprocess_function(examples):
 
 
 dataset = load_dataset("./data/",
-                       data_files=["ourdata1_formatted.csv"])
+                       data_files=["phish_mails_formatted.csv"])
 
 # Preprocess the dataset
 tokenized_dataset = dataset.map(
