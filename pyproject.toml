@@ -18,3 +18,5 @@ dependencies = [
     "vllm>=0.7.3",
     "wandb>=0.19.7",
 ]
+[tool.uv]
+upgrade = true
