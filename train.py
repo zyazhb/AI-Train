@@ -9,7 +9,10 @@ from trl import SFTConfig, SFTTrainer, DataCollatorForCompletionOnlyLM
 from peft import LoraConfig, get_peft_model
 import wandb
 
-base_model_path = "./meta-llama/Llama-3.2-1B-Instruct"
+base_model_path = "meta-llama/Llama-3.2-1B-Instruct"
+epochs = 5
+learning_rate = 5e-5
+print("Loading base model from", base_model_path)
 
 base_model = AutoModelForCausalLM.from_pretrained(
     base_model_path,
@@ -84,13 +87,13 @@ collator = DataCollatorForCompletionOnlyLM(
 
 training_args = SFTConfig(
     max_seq_length=3072,
-    output_dir="./model/tmp",
+    output_dir="./model/lora_model",
     save_steps=250,
     per_device_train_batch_size=2,
     gradient_accumulation_steps=1,
     logging_steps=5,
-    learning_rate=1e-4,
-    num_train_epochs=4,
+    learning_rate=learning_rate,
+    num_train_epochs=epochs,
     # wandb
     report_to="none",
     run_name="llama_sft",
